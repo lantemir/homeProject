@@ -34,6 +34,10 @@ app.get("/", function(request, responce){
 	responce.send("<h2>Привет express</h2>")
 })
 
+app.get('*',(req,res,next)=>{
+	res.redirect('/#' + req.originalUrl)
+})
+
 app.listen(port,()=>{
 	console.log(`Server listening on port ${port}`)
 })
